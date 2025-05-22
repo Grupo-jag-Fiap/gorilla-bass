@@ -5,10 +5,40 @@
 
 body{
     color: white;
-    background-color: lightgreen;
+    background-color: rgb(180, 225, 180);
 }
 
 .game-container{
-    width: 120vw;
-    height: 120vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.gorilla-status{
+    top: 20px;
+    left: 20px;
+    width: 300px;
+}
+ .gorilla-status{
+    text-align: center;
+}
+.barra-hp{
+    background-color: rgb(166, 166, 166);
+    width: 100%;
+    height: 20px;
+    transition: width 0.3s ease-in-out;
+}
+.encher-hp{
+    background-color: green;
+    width: 50%;
+    height: 100%;
+}
+
+.gorilla{
+    bottom: 50px;
+    left: 100px;
+    width: 400px;
+    height: 400px;
+    background-image: url("../assets/gorilla.png");
+    background-size: cover;
+    background-repeat: no-repeat;
 }

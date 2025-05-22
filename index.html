@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gorilla x 100 humanos</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gorilla x 100 humanos</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <script src="./js/script.js" defer></script>
 </head>
 <body>
-   <div class="game-container"></div> 
 
-   <!--barra de status do gorilla-->
-   <div class="gorilla-status"></div>
+  <div class="game-container">
 
-   <div class="gorila" id="gorila"></div> <!-- usado class para estilizar no css, e id para dar movimentação no JS -->
+    <!-- Barra de status do gorilla -->
+    <div class="gorilla-status">
+      <label>Gorilla HP</label>
+      <div class="barra-hp">
+        <div class="encher-hp" id="gorilla-hp"></div>
+      </div>
+    </div>
 
-   <div class="humanos" id="humanos"></div>
+    <!-- Gorilla -->
+    <div class="gorilla" id="gorilla"></div> <!-- class = estilo, id = controle JS -->
 
-   <script></script>
+    <!-- Humanos -->
+    <div class="humanos" id="humanos"></div>
+
+  </div>
+
 </body>
 </html>
