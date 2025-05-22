@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: white;
+    background-color: lightgreen;
+}
+
+.game-container{
+    width: 120vw;
+    height: 120vh;
+}
