@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gorilla x 100 humanos</title>
+  <title>Gorilla vs 100 Humanos</title>
   <link rel="stylesheet" href="./css/style.css" />
   <script src="./js/script.js" defer></script>
 </head>
@@ -11,22 +11,35 @@
 
   <div class="game-container">
 
-    <!-- Barra de status do gorilla -->
+    <!-- Barra de status do gorila -->
     <div class="gorilla-status">
-      <label>Gorilla HP</label>
+      <label>Vida do Gorilla</label>
       <div class="barra-hp">
         <div class="encher-hp" id="gorilla-hp"></div>
       </div>
     </div>
 
     <!-- Gorilla -->
-    <div class="gorilla" id="gorilla"></div> <!-- class = estilo, id = controle JS -->
+    <div class="gorilla" id="gorilla"></div>
 
     <!-- Humanos -->
-    <div class="humanos" id="humanos"></div>
+    <div class="humanos-container">
+      <h3>Humanos</h3>
+      <div class="humanos" id="humanos"></div>
+    </div>
 
-    <!-- botões ataque gorilla -->
-     <div class="botao-ataque" id="botao-ataque"><p>ATACAR</p></div>
+    <!-- Botões de ações -->
+    <div class="painel-botoes">
+      <div class="botao" id="botao-ataque">🦍 Atacar</div>
+      <div class="botao" id="botao-curar">💚 Curar</div>
+      <div class="botao" id="botao-defender">🛡️ Defender</div>
+    </div>
+
+    <!-- Log da batalha -->
+    <div class="log-container">
+      <h3>📜 Log da Batalha</h3>
+      <div id="log" class="log"></div>
+    </div>
 
   </div>
 
