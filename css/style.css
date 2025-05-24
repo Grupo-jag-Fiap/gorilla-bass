@@ -46,7 +46,7 @@ body {
 .gorilla {
     width: 200px;
     height: 200px;
-    background-image: url("../assets/gorila.png");
+    background-image: url("../assets/gorilla.png");
     background-size: cover;
     background-repeat: no-repeat;
     margin: 10px;
