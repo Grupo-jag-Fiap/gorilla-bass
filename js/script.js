@@ -3,6 +3,7 @@ const vidaMaximaGorila = 100;
 let defendendo = false;
 let humanos = [];
 
+const somAtaque = new Audio('./assets/som-ataque.mp3');
 
 function criarHumanos(skipReset = false) {
     const humanosDiv = document.getElementById('humanos');
@@ -27,8 +28,10 @@ function criarHumanos(skipReset = false) {
     }
 }
 
-
 function atacar() {
+    somAtaque.currentTime = 0;
+    somAtaque.play();
+
     const vivos = humanos.filter(h => h.vivo);
     if (vivos.length === 0) return;
 
@@ -61,7 +64,6 @@ function curar() {
     atualizarInterface();
 }
 
-
 function defender() {
     defendendo = true;
     adicionarLog('🛡️ Gorilla está se defendendo! Reduzirá dano do próximo ataque.');
@@ -90,7 +92,6 @@ function ataqueHumanos() {
     atualizarInterface();
     verificarFimDeJogo();
 }
-
 
 function atualizarInterface() {
     const hpPorcentagem = (vidaGorila / vidaMaximaGorila) * 100;
