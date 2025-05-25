@@ -19,3 +19,25 @@ function criarHumanos() {
         humanosDiv.appendChild(humanoDiv);
     }
 }
+
+function atacar() {
+    const vivos = humanos.filter(h => h.vivo);
+    if (vivos.length === 0) return;
+
+    const quantidade = Math.min(5, vivos.length); // Ataca até 5 humanos por ataque
+    let mortos = 0;
+
+    for (let i = 0; i < quantidade; i++) {
+        const index = humanos.findIndex(h => h.vivo);
+        if (index !== -1) {
+            humanos[index].vivo = false;
+            document.getElementById(`humano-${index}`).classList.add('morto');
+            mortos++;
+        }
+    }
+
+    adicionarLog(`🦍 Gorilla atacou e derrotou ${mortos} humanos!`);
+
+    atualizarInterface();
+    verificarFimDeJogo();
+}
