@@ -64,3 +64,30 @@ function defender() {
         adicionarLog('🛡️ Defesa acabou.');
     }, 3000);
 }
+
+function ataqueHumanos() {
+    const vivos = humanos.filter(h => h.vivo).length;
+    if (vivos <= 0) return;
+
+    const danoPorHumano = 0.3;
+    let dano = vivos * danoPorHumano;
+    if (defendendo) dano = dano / 2;
+
+    dano = Math.floor(dano);
+
+    vidaGorila -= dano;
+    if (vidaGorila < 0) vidaGorila = 0;
+
+    adicionarLog(`👥 Humanos atacaram causando ${dano} de dano.`);
+
+    atualizarInterface();
+    verificarFimDeJogo();
+}
+
+
+function atualizarInterface() {
+    const hpPorcentagem = (vidaGorila / vidaMaximaGorila) * 100;
+    document.getElementById('gorilla-hp').style.width = hpPorcentagem + '%';
+
+    salvarProgresso();
+}
