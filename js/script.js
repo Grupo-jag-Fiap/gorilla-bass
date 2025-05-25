@@ -41,3 +41,26 @@ function atacar() {
     atualizarInterface();
     verificarFimDeJogo();
 }
+
+function curar() {
+    if (vidaGorila >= vidaMaximaGorila) {
+        adicionarLog('🧠 Cura não necessária. Vida cheia.');
+        return;
+    }
+    const cura = Math.floor(Math.random() * 20) + 10;
+    vidaGorila = Math.min(vidaGorila + cura, vidaMaximaGorila);
+    adicionarLog(`💚 Gorilla se curou em +${cura} de vida.`);
+
+    atualizarInterface();
+}
+
+
+function defender() {
+    defendendo = true;
+    adicionarLog('🛡️ Gorilla está se defendendo! Reduzirá dano do próximo ataque.');
+
+    setTimeout(() => {
+        defendendo = false;
+        adicionarLog('🛡️ Defesa acabou.');
+    }, 3000);
+}
