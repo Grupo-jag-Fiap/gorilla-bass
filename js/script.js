@@ -1,30 +1,38 @@
-
 let vidaGorila = 100;
 const vidaMaximaGorila = 100;
 let defendendo = false;
 let humanos = [];
 
 
-function criarHumanos() {
+function criarHumanos(skipReset = false) {
     const humanosDiv = document.getElementById('humanos');
     humanosDiv.innerHTML = '';
-    humanos = [];
+
+    if (!skipReset) {
+        humanos = [];
+        for (let i = 0; i < 100; i++) {
+            humanos.push({ vivo: true });
+        }
+    }
 
     for (let i = 0; i < 100; i++) {
-        humanos.push({ vivo: true });
-
         const humanoDiv = document.createElement('div');
         humanoDiv.classList.add('humano');
         humanoDiv.id = `humano-${i}`;
         humanosDiv.appendChild(humanoDiv);
+
+        if (humanos[i] && !humanos[i].vivo) {
+            humanoDiv.classList.add('morto');
+        }
     }
 }
+
 
 function atacar() {
     const vivos = humanos.filter(h => h.vivo);
     if (vivos.length === 0) return;
 
-    const quantidade = Math.min(5, vivos.length); // Ataca até 5 humanos por ataque
+    const quantidade = Math.min(5, vivos.length);
     let mortos = 0;
 
     for (let i = 0; i < quantidade; i++) {
@@ -37,7 +45,6 @@ function atacar() {
     }
 
     adicionarLog(`🦍 Gorilla atacou e derrotou ${mortos} humanos!`);
-
     atualizarInterface();
     verificarFimDeJogo();
 }
@@ -124,20 +131,35 @@ function salvarProgresso() {
     localStorage.setItem('gorilla-batalha', JSON.stringify(dados));
 }
 
-function carregarProgresso() {
+function iniciarJogo() {
     const dados = JSON.parse(localStorage.getItem('gorilla-batalha'));
     if (dados) {
         vidaGorila = dados.vidaGorila;
-        dados.humanos.forEach((vivo, index) => {
-            humanos[index] = { vivo: vivo };
-            const humanoDiv = document.getElementById(`humano-${index}`);
-            if (humanoDiv) {
-                if (!vivo) {
-                    humanoDiv.classList.add('morto');
-                }
-            }
-        });
-        atualizarInterface();
+        humanos = dados.humanos.map(vivo => ({ vivo }));
+        criarHumanos(true);
         adicionarLog('📦 Progresso carregado do jogo anterior.');
+    } else {
+        criarHumanos();
     }
+
+    atualizarInterface();
+    adicionarLog('🚀 Jogo iniciado.');
 }
+
+function resetarJogo() {
+    vidaGorila = vidaMaximaGorila;
+    criarHumanos();
+    atualizarInterface();
+    localStorage.removeItem('gorilla-batalha');
+    document.getElementById('log').innerHTML = '';
+    adicionarLog('🔄 Jogo reiniciado.');
+}
+
+document.getElementById('botao-ataque').addEventListener('click', atacar);
+document.getElementById('botao-curar').addEventListener('click', curar);
+document.getElementById('botao-defender').addEventListener('click', defender);
+
+
+setInterval(ataqueHumanos, 4000);
+
+iniciarJogo();
