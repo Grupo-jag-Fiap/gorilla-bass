@@ -115,3 +115,29 @@ function adicionarLog(mensagem) {
     logDiv.appendChild(p);
     logDiv.scrollTop = logDiv.scrollHeight;
 }
+
+function salvarProgresso() {
+    const dados = {
+        vidaGorila,
+        humanos: humanos.map(h => h.vivo)
+    };
+    localStorage.setItem('gorilla-batalha', JSON.stringify(dados));
+}
+
+function carregarProgresso() {
+    const dados = JSON.parse(localStorage.getItem('gorilla-batalha'));
+    if (dados) {
+        vidaGorila = dados.vidaGorila;
+        dados.humanos.forEach((vivo, index) => {
+            humanos[index] = { vivo: vivo };
+            const humanoDiv = document.getElementById(`humano-${index}`);
+            if (humanoDiv) {
+                if (!vivo) {
+                    humanoDiv.classList.add('morto');
+                }
+            }
+        });
+        atualizarInterface();
+        adicionarLog('📦 Progresso carregado do jogo anterior.');
+    }
+}
