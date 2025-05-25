@@ -107,3 +107,11 @@ function verificarFimDeJogo() {
         resetarJogo();
     }
 }
+
+function adicionarLog(mensagem) {
+    const logDiv = document.getElementById('log');
+    const p = document.createElement('p');
+    p.textContent = mensagem;
+    logDiv.appendChild(p);
+    logDiv.scrollTop = logDiv.scrollHeight;
+}
