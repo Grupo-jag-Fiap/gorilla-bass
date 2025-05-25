@@ -91,3 +91,19 @@ function atualizarInterface() {
 
     salvarProgresso();
 }
+
+function verificarFimDeJogo() {
+    const humanosVivos = humanos.filter(h => h.vivo).length;
+
+    if (humanosVivos <= 0) {
+        adicionarLog('🎉 Gorilla venceu! Todos os humanos foram derrotados.');
+        alert('🎉 Gorilla venceu!');
+        resetarJogo();
+    }
+
+    if (vidaGorila <= 0) {
+        adicionarLog('💀 Gorilla foi derrotado pelos humanos...');
+        alert('💀 Gorilla perdeu...');
+        resetarJogo();
+    }
+}
