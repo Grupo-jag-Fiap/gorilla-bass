@@ -1,13 +1,19 @@
-## Nome dos integrantes
-André Emygdio Ferreira | RM: 565592
-Gabriel Lourenço Müller | RM: 561995
-João Victor Nascimento Adão | RM: 563409
-Lucas Tavares Dagrosa | RM: 563424
-Turma: 1TDSPG
+## 👥 Nome dos Integrantes
+
+| Nome                          | RM      |
+|-------------------------------|---------|
+| André Emygdio Ferreira        | 565592  |
+| Gabriel Lourenço Müller       | 561995  |
+| João Victor Nascimento Adão   | 563409  |
+| Lucas Tavares Dagrosa         | 563424  |
+
+**Turma:** 1TDSPG
+
 ---
-## Link do repositório
-https://github.com/Grupo-jag-Fiap/gorilla-bass
----
+
+## 🔗 Link do Repositório
+
+[Acesse aqui o repositório no GitHub](https://github.com/Grupo-jag-Fiap/gorilla-bass)
 ## 📦 Descrição geral
 
 Neste projeto, vocês irão criar uma página interativa com HTML, CSS e JavaScript simulando uma batalha entre um gorila e 100 humanos. O gorila pode atacar, se defender e recuperar energia. Os humanos agem automaticamente. A ideia é trabalhar **lógica de programação, eventos, manipulação de DOM e armazenamento com localStorage**, tudo de forma visual e funcional.
